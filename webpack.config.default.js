@@ -13,6 +13,10 @@ module.exports = {
         path: distPath,
         clean: true
     },
+    // Расширения, которые не надо указывать при импорте файлов.
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx']
+    },
     plugins:
         [
             new HtmlWebpackPlugin({
@@ -64,10 +68,11 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
+            // Подключение медиа файлов.
+            {
+                test: /\.mp3$/i,
+                type: 'asset/resource',
+            },
         ],
     },
-    // Расширения, которые не надо указывать при импорте файлов.
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
-    }
 }

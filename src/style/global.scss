@@ -1,0 +1,22 @@
+@import "index";
+
+// ***** VARS *****
+:root {
+	--main-font: "RedHat-Regular", sans-serif;
+
+	--main-background: #5183a2;
+}
+
+// ***** CONSTANT's *****
+$color: #41c28e;
+$text-color-1: #bec2cb;
+
+body {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+
+	font-family: var(--main-font);
+	font-size: 16px;
+	line-height: 1;
+}

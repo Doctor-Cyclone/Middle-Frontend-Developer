@@ -1,11 +1,10 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
 import data from './data';
-import './index.scss';
+import './style/app.style.scss';
 
 const App: FunctionComponent = () => {
 	let currentSoundId = 0;
-	const audio = new Audio();
 	const audioData = [
 		{
 			id: 1,
