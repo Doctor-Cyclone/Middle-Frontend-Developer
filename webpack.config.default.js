@@ -7,7 +7,7 @@ const distPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
-    entry: './index.tsx',
+    entry: './index.js',
     output: {
         filename: '[name].[contenthash].js',
         path: distPath,
