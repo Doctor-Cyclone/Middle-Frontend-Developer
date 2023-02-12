@@ -3,14 +3,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Для со�
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Для генерации HTML с новым билдом js.
 const path = require('path'); // Для сокращения абсолютных путей.
 
-const distPath = path.resolve(__dirname, 'dist');
-
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: './index.tsx',
     output: {
         filename: '[name].[contenthash].js',
-        path: distPath,
+        path: path.resolve(__dirname, 'dist'),
         clean: true
     },
     // Расширения, которые не надо указывать при импорте файлов.
@@ -20,11 +18,11 @@ module.exports = {
     plugins:
         [
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, 'public/index.html')
+                template: path.resolve(__dirname, 'src/index.html')
             }),
             new CopyPlugin({
                 patterns: [
-                    { from: path.resolve(__dirname, 'public/favicon.png'), to: distPath }
+                    { from: path.resolve(__dirname, 'src/assets'), to: path.resolve(__dirname, 'dist/assets') }
                 ],
             }),
             new MiniCssExtractPlugin()
@@ -57,6 +55,9 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
+                generator: {
+                    filename: 'assets/fonts/[name][ext]'
+                }
             },
             // Подключение .ts & .tsx файлов.
             {
@@ -64,14 +65,15 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            // Подключение картинок.
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                type: 'asset/resource'
             },
             // Подключение медиа файлов.
             {
                 test: /\.mp3$/i,
-                type: 'asset/resource',
+                type: 'asset/sounds/[name][ext]',
             },
         ],
     },

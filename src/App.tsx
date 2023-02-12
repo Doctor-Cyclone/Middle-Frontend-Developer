@@ -8,17 +8,17 @@ const App: FunctionComponent = () => {
 	const audioData = [
 		{
 			id: 1,
-			audio: new Audio('./sounds/summer.mp3'),
+			audio: new Audio('./assets/sounds/summer.mp3'),
 			playing: false
 		},
 		{
 			id: 2,
-			audio: new Audio('./sounds/rain.mp3'),
+			audio: new Audio('./assets/sounds/rain.mp3'),
 			playing: false
 		},
 		{
 			id: 3,
-			audio: new Audio('./sounds/winter.mp3'),
+			audio: new Audio('./assets/sounds/winter.mp3'),
 			playing: false
 		}
 	];
@@ -72,7 +72,7 @@ const App: FunctionComponent = () => {
 				})}
 			</ul>
 			<input className="sounds__volume" type="range" onChange={() => changeSoundVolume(event)}/>
-			<img className="wrapper__bg" src="./images/rainy-bg.jpg" alt="bg"/>
+			<img className="wrapper__bg" src="./assets/images/rainy-bg.jpg" alt="bg"/>
 		</div>
 	)
 }
