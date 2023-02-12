@@ -4,7 +4,7 @@ import './index.scss';
 let currentSoundId = '';
 const allSound = document.querySelector('.sounds');
 const volumeControl = document.querySelector('.sounds__volume');
-document.body.style.backgroundImage = `url('./images/rainy-bg.jpg')`;
+document.body.style.backgroundImage = `url('./assets/images/rainy-bg.jpg')`;
 
 const audio = new Audio();
 audio.loop = true;
@@ -14,14 +14,19 @@ volumeControl.addEventListener('input', (event) => {
 });
 
 allSound.addEventListener('click', (event) => {
-	const soundId = event.target.closest('[data-sound-id]')?.dataset.soundId;
+	const clickedSoundItem = event.target.closest('[data-sound-id]');
+	const soundIcon = clickedSoundItem.getElementsByTagName('img');
+	const soundId = clickedSoundItem?.dataset.soundId;
+	const soundIconName = clickedSoundItem?.dataset.soundIcon;
 	const soundItem = data.filter((dataItem) => dataItem.id === soundId)[0];
+	soundIcon[0].src = `./assets/icons/${soundIconName}.svg`;
 
 	if (currentSoundId === soundItem.id) {
 		if (audio.paused) {
 			audio.play();
 		} else {
 			audio.pause();
+			soundIcon[0].src = './assets/icons/pause.svg';
 		}
 	} else {
 		currentSoundId = soundItem.id;
@@ -35,6 +40,7 @@ const createItem = soundItem => {
 	const listItem = document.createElement('li');
 	listItem.classList.add('sounds__item');
 	listItem.dataset.soundId = soundItem.id;
+	listItem.dataset.soundIcon = soundItem.name;
 	listItem.style.backgroundImage = `url('${soundItem.srcBackground}')`;
 	allSound.append(listItem);
 

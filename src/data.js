@@ -1,22 +1,22 @@
 export default [
   {
     id: '1',
-    name: 'summer',
-    srcSound: './sounds/summer.mp3',
-    srcIcon: './icons/sun.svg',
-    srcBackground: './images/summer-bg.jpg'
+    name: 'sun',
+    srcSound: './assets/sounds/summer.mp3',
+    srcIcon: './assets/icons/sun.svg',
+    srcBackground: './assets/images/summer-bg.jpg'
   },
   {
     id: '2',
-    name: 'rain',
-    srcSound: './sounds/rain.mp3',
-    srcIcon: './icons/cloud-rain.svg',
-    srcBackground: './images/rainy-bg.jpg'
+    name: 'cloud-rain',
+    srcSound: './assets/sounds/rain.mp3',
+    srcIcon: './assets/icons/cloud-rain.svg',
+    srcBackground: './assets/images/rainy-bg.jpg'
   },
   { id: '3',
-    name: 'winter',
-    srcSound: './sounds/winter.mp3',
-    srcIcon: './icons/cloud-snow.svg',
-    srcBackground: './images/winter-bg.jpg'
+    name: 'cloud-snow',
+    srcSound: './assets/sounds/winter.mp3',
+    srcIcon: './assets/icons/cloud-snow.svg',
+    srcBackground: './assets/images/winter-bg.jpg'
   }
 ]

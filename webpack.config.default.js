@@ -3,24 +3,22 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // Для со�
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Для генерации HTML с новым билдом js.
 const path = require('path'); // Для сокращения абсолютных путей.
 
-const distPath = path.resolve(__dirname, 'dist');
-
 module.exports = {
     context: path.resolve(__dirname, 'src'),
     entry: './index.js',
     output: {
         filename: '[name].[contenthash].js',
-        path: distPath,
+        path: path.resolve(__dirname, 'dist'),
         clean: true
     },
     plugins:
         [
             new HtmlWebpackPlugin({
-                template: path.resolve(__dirname, 'public/index.html')
+                template: path.resolve(__dirname, 'src/index.html')
             }),
             new CopyPlugin({
                 patterns: [
-                    { from: path.resolve(__dirname, 'public/favicon.png'), to: distPath }
+                    { from: path.resolve(__dirname, 'src/assets'), to: path.resolve(__dirname, 'dist/assets') }
                 ],
             }),
             new MiniCssExtractPlugin()
