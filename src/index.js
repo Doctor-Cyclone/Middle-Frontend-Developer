@@ -1,5 +1,5 @@
 import data from './data';
-import './index.scss';
+import './style/global.scss';
 
 let currentSoundId = '';
 const allSound = document.querySelector('.sounds');
@@ -48,7 +48,6 @@ const createItem = soundItem => {
 	itemIcon.classList.add('sounds__icon');
 	itemIcon.src = soundItem.srcIcon;
 	listItem.append(itemIcon);
-}
+};
 
 data.forEach(soundItem => createItem(soundItem));
-

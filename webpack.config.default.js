@@ -54,10 +54,7 @@ module.exports = {
             // Подключение шрифтов.
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'assets/fonts/[name][ext]'
-                }
+                type: 'asset/resource'
             },
             // Подключение .ts & .tsx файлов.
             {
@@ -73,7 +70,7 @@ module.exports = {
             // Подключение медиа файлов.
             {
                 test: /\.mp3$/i,
-                type: 'asset/sounds/[name][ext]',
+                type: 'asset/resource',
             },
         ],
     },

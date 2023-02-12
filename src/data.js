@@ -19,4 +19,4 @@ export default [
     srcIcon: './assets/icons/cloud-snow.svg',
     srcBackground: './assets/images/winter-bg.jpg'
   }
-]
+];
