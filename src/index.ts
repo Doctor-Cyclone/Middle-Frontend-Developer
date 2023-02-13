@@ -1,20 +1,20 @@
-import data from './data';
+import {data, Sound} from './data';
 import './style/global.scss';
 
 let currentSoundId = '';
-const allSound = document.querySelector('.sounds');
-const volumeControl = document.querySelector('.sounds__volume');
+const allSound = document.querySelector('.sounds') as HTMLElement;
+const volumeControl = document.querySelector('.sounds__volume') as HTMLInputElement;
 document.body.style.backgroundImage = `url('./assets/images/rainy-bg.jpg')`;
 
 const audio = new Audio();
 audio.loop = true;
 
-volumeControl.addEventListener('input', (event) => {
-	audio.volume = event.target.value / 100;
+volumeControl.addEventListener('input', (event: Event) => {
+	audio.volume = +(event.target as HTMLInputElement).value / 100;
 });
 
-allSound.addEventListener('click', (event) => {
-	const clickedSoundItem = event.target.closest('[data-sound-id]');
+allSound.addEventListener('click', (event: Event) => {
+	const clickedSoundItem = (event.target as HTMLElement).closest('[data-sound-id]') as HTMLElement;
 	const soundIcon = clickedSoundItem.getElementsByTagName('img');
 	const soundId = clickedSoundItem?.dataset.soundId;
 	const soundIconName = clickedSoundItem?.dataset.soundIcon;
@@ -36,7 +36,7 @@ allSound.addEventListener('click', (event) => {
 	}
 });
 
-const createItem = soundItem => {
+const createItem = (soundItem: Sound) => {
 	const listItem = document.createElement('li');
 	listItem.classList.add('sounds__item');
 	listItem.dataset.soundId = soundItem.id;
