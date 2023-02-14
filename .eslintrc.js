@@ -4,11 +4,12 @@ module.exports = {
         es2021: true,
         node: true
     },
-    extends: ["airbnb", "prettier"],
+    extends: ["airbnb", "airbnb-typescript", "prettier"],
     plugins: ["prettier"],
     parserOptions: {
         ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: 'module',
+        project: './tsconfig.json'
     },
     rules: {
         "prettier/prettier": ["error"]

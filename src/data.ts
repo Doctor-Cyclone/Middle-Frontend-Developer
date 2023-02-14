@@ -1,4 +1,12 @@
-export default [
+export interface Sound {
+  id: string;
+  name: string;
+  srcSound: string;
+  srcIcon: string;
+  srcBackground: string;
+}
+
+export const data: Sound[] = [
   {
     id: '1',
     name: 'sun',
