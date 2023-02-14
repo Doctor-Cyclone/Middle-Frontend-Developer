@@ -6,7 +6,7 @@ const allSound = document.querySelector('.sounds') as HTMLElement;
 const volumeControl = document.querySelector('.sounds__volume') as HTMLInputElement;
 document.body.style.backgroundImage = `url('./assets/images/rainy-bg.jpg')`;
 
-const audio = new Audio();
+const audio: HTMLAudioElement = new Audio();
 audio.loop = true;
 
 volumeControl.addEventListener("input", (event: Event) => {
@@ -15,18 +15,18 @@ volumeControl.addEventListener("input", (event: Event) => {
 
 allSound.addEventListener('click', (event: Event) => {
 	const clickedSoundItem = (event.target as HTMLElement).closest('[data-sound-id]') as HTMLElement;
-	const soundIcon = clickedSoundItem.getElementsByTagName('img');
-	const soundId = clickedSoundItem?.dataset.soundId;
-	const soundIconName = clickedSoundItem?.dataset.soundIcon;
+	const soundIcon = clickedSoundItem.getElementsByTagName('img')[0];
+	const soundId = clickedSoundItem?.dataset.soundId!;
+	const soundIconName = clickedSoundItem?.dataset.soundIcon!;
 	const soundItem = data.filter((dataItem) => dataItem.id === soundId)[0];
-	soundIcon[0].src = `./assets/icons/${soundIconName}.svg`;
+	soundIcon.src = `./assets/icons/${soundIconName}.svg`;
 
 	if (currentSoundId === soundItem.id) {
 		if (audio.paused) {
 			audio.play();
 		} else {
 			audio.pause();
-			soundIcon[0].src = './assets/icons/pause.svg';
+			soundIcon.src = './assets/icons/pause.svg';
 		}
 	} else {
 		currentSoundId = soundItem.id;
@@ -37,14 +37,14 @@ allSound.addEventListener('click', (event: Event) => {
 });
 
 const createItem = (soundItem: Sound) => {
-	const listItem = document.createElement('li');
+	const listItem: HTMLLIElement = document.createElement('li');
 	listItem.classList.add('sounds__item');
 	listItem.dataset.soundId = soundItem.id;
 	listItem.dataset.soundIcon = soundItem.name;
 	listItem.style.backgroundImage = `url('${soundItem.srcBackground}')`;
 	allSound.append(listItem);
 
-	const itemIcon = document.createElement('img');
+	const itemIcon: HTMLImageElement = document.createElement('img');
 	itemIcon.classList.add('sounds__icon');
 	itemIcon.src = soundItem.srcIcon;
 	listItem.append(itemIcon);
