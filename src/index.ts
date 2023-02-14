@@ -16,8 +16,8 @@ volumeControl.addEventListener("input", (event: Event) => {
 allSound.addEventListener('click', (event: Event) => {
 	const clickedSoundItem = (event.target as HTMLElement).closest('[data-sound-id]') as HTMLElement;
 	const soundIcon = clickedSoundItem.getElementsByTagName('img')[0];
-	const soundId = clickedSoundItem?.dataset.soundId!;
-	const soundIconName = clickedSoundItem?.dataset.soundIcon!;
+	const soundId = clickedSoundItem.dataset.soundId!;
+	const soundIconName = clickedSoundItem.dataset.soundIcon!;
 	const soundItem = data.filter((dataItem) => dataItem.id === soundId)[0];
 	soundIcon.src = `./assets/icons/${soundIconName}.svg`;
 
