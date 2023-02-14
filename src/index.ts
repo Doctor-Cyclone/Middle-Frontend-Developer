@@ -9,7 +9,7 @@ document.body.style.backgroundImage = `url('./assets/images/rainy-bg.jpg')`;
 const audio = new Audio();
 audio.loop = true;
 
-volumeControl.addEventListener('input', (event: Event) => {
+volumeControl.addEventListener("input", (event: Event) => {
 	audio.volume = +(event.target as HTMLInputElement).value / 100;
 });
 
